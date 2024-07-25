@@ -1,5 +1,6 @@
 const container = document.querySelector(".container")
 const changeGrid = document.querySelector(".changeGrid")
+const reset = document.querySelector(".reset")
 
 function createContainers() {
   const containers = document.createElement("div")
@@ -27,6 +28,15 @@ function createSqauresInContainers(num1) {
 createSqauresInContainers(16)
 draw()
 
+function draw() {
+const sqaureNodeList = document.querySelectorAll(".sqaure")
+sqaureNodeList.forEach((element) => {
+  element.addEventListener("mouseover", () => {
+    element.className = "red";
+  })
+})
+}
+
 changeGrid.addEventListener("click", () => {
   number = Number(prompt("Pick a number between 2-100"))
   if (number < 101 && number > 1) {
@@ -40,11 +50,9 @@ changeGrid.addEventListener("click", () => {
   }
 })
 
-function draw() {
-const sqaureNodeList = document.querySelectorAll(".sqaure")
+reset.addEventListener("click", () => {
+const sqaureNodeList = document.querySelectorAll(".red")
 sqaureNodeList.forEach((element) => {
-  element.addEventListener("mouseover", () => {
-    element.className = "red";
+    element.className = "sqaure";
   })
 })
-}
