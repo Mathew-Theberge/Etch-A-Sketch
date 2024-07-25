@@ -1,7 +1,5 @@
 const container = document.querySelector(".container")
-
-number = prompt("number")
-numberForSecondLoop = number
+const changeGrid = document.querySelector(".changeGrid")
 
 function createContainers() {
   const containers = document.createElement("div")
@@ -9,21 +7,21 @@ function createContainers() {
   container.appendChild(containers)
 }
 
-function createSqauresInContainers() {
-  while (number > 0) {
+function createSqauresInContainers(num1) {
+  num2 = num1
+  while (num1 > 0) {
     createContainers()
-    number--
+    num1--
   }
   const containersList = document.querySelectorAll(".containers")
-  while (numberForSecondLoop > 0) {
+  while (num2 > 0) {
     containersList.forEach((item) => {
       const div = document.createElement("div")
       div.setAttribute("class", "sqaure")
       item.appendChild(div)
     })
-    numberForSecondLoop--
+    num2--
   }
 }
 
-
-createSqauresInContainers()
+createSqauresInContainers(16)
