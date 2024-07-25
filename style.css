@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+body {
+  background: palegoldenrod;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   border: 1px black solid;
   width: 720px;
@@ -18,4 +28,5 @@
 .sqaure {
   border: 1px black solid;
   flex: 1;
+  background-color: white;
 }
