@@ -3,6 +3,7 @@ const changeGrid = document.querySelector(".changeGrid")
 const reset = document.querySelector(".reset")
 const dragover = document.querySelector(".dragover")
 const mouseover = document.querySelector(".mouseover")
+const colorInput = document.querySelector(".colorInput")
 
 function createContainers() {
   const containers = document.createElement("div")
@@ -25,13 +26,16 @@ function createSqauresInContainers(num1) {
     })
     num2--
   }
+  draw()
 }
+
 createSqauresInContainers(16)
+
 function draw() {
 const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
   element.addEventListener("mouseover", () => {
-    element.setAttribute("style", `background:${randomRGB()};`)
+    element.setAttribute("style", `background:${returnColorInput()};`)
   })
 })
 }
@@ -56,17 +60,15 @@ sqaureNodeList.forEach((element) => {
   })
 })
 
-function toggleDraw() {
-  const sqaureNodeList = document.querySelectorAll(".sqaure")
-  sqaureNodeList.forEach( (element) => {
-    element.addEventListener("dragover", color = function() {
-      element.setAttribute("style", `background:${randomRGB()};`)
-    })
-  })
-}
 
 function randomRGB() {
   return "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ")";
 }
-dragover.addEventListener("click", toggleDraw)
-mouseover.addEventListener("click", draw)
+
+colorInput.addEventListener("change", returnColorInput)
+
+function returnColorInput() {
+  return colorInput.value
+}
+
+
