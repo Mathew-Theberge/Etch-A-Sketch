@@ -1,6 +1,8 @@
 const container = document.querySelector(".container")
 const changeGrid = document.querySelector(".changeGrid")
 const reset = document.querySelector(".reset")
+const dragover = document.querySelector(".dragover")
+const mouseover = document.querySelector(".mouseover")
 
 function createContainers() {
   const containers = document.createElement("div")
@@ -23,16 +25,13 @@ function createSqauresInContainers(num1) {
     })
     num2--
   }
-  draw()
 }
 createSqauresInContainers(16)
-draw()
-
 function draw() {
 const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
   element.addEventListener("mouseover", () => {
-    element.className = "red";
+    element.classList.add("red") 
   })
 })
 }
@@ -51,8 +50,20 @@ changeGrid.addEventListener("click", () => {
 })
 
 reset.addEventListener("click", () => {
-const sqaureNodeList = document.querySelectorAll(".red")
+const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
-    element.className = "sqaure";
+    element.classList.remove("red")
   })
 })
+
+function toggleDraw() {
+  const sqaureNodeList = document.querySelectorAll(".sqaure")
+  sqaureNodeList.forEach( (element) => {
+    element.addEventListener("dragover", color = function() {
+      element.classList.add("red")
+    })
+  })
+}
+
+dragover.addEventListener("click", toggleDraw)
+mouseover.addEventListener("click", draw)
