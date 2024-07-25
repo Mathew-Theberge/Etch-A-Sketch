@@ -31,7 +31,7 @@ function draw() {
 const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
   element.addEventListener("mouseover", () => {
-    element.classList.add("red") 
+    element.setAttribute("style", `background:${randomRGB()};`)
   })
 })
 }
@@ -52,7 +52,7 @@ changeGrid.addEventListener("click", () => {
 reset.addEventListener("click", () => {
 const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
-    element.classList.remove("red")
+    element.setAttribute("style", "background:white;")
   })
 })
 
@@ -60,10 +60,13 @@ function toggleDraw() {
   const sqaureNodeList = document.querySelectorAll(".sqaure")
   sqaureNodeList.forEach( (element) => {
     element.addEventListener("dragover", color = function() {
-      element.classList.add("red")
+      element.setAttribute("style", `background:${randomRGB()};`)
     })
   })
 }
 
+function randomRGB() {
+  return "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ")";
+}
 dragover.addEventListener("click", toggleDraw)
 mouseover.addEventListener("click", draw)
