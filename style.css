@@ -1,5 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
 .container {
   border: 1px black solid;
   width: 720px;
   height: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+.containers {
+  display: flex;
+  flex: 1;
+}
+
+.sqaure {
+  border: 1px black solid;
+  flex: 1;
 }
