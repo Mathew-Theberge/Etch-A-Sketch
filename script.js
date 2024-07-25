@@ -23,5 +23,17 @@ function createSqauresInContainers(num1) {
     num2--
   }
 }
-
 createSqauresInContainers(16)
+
+changeGrid.addEventListener("click", () => {
+  number = Number(prompt("Pick a number between 2-100"))
+  if (number < 101 && number > 1) {
+    const deleteContainers = document.querySelectorAll(".containers")
+    deleteContainers.forEach((element) => {
+      container.removeChild(element)
+    })
+    createSqauresInContainers(number)
+  } else {
+    alert("You must pick a number between 2-100")
+  }
+})
