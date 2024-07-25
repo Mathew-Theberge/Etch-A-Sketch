@@ -22,8 +22,10 @@ function createSqauresInContainers(num1) {
     })
     num2--
   }
+  draw()
 }
 createSqauresInContainers(16)
+draw()
 
 changeGrid.addEventListener("click", () => {
   number = Number(prompt("Pick a number between 2-100"))
@@ -37,3 +39,12 @@ changeGrid.addEventListener("click", () => {
     alert("You must pick a number between 2-100")
   }
 })
+
+function draw() {
+const sqaureNodeList = document.querySelectorAll(".sqaure")
+sqaureNodeList.forEach((element) => {
+  element.addEventListener("mouseover", () => {
+    element.className = "red";
+  })
+})
+}
