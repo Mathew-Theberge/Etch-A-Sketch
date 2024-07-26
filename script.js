@@ -7,6 +7,8 @@ const colorInput = document.querySelector(".colorInput")
 const rgbButton = document.querySelector(".rgbButton")
 const border = document.querySelector(".border")
 const noborder = document.querySelector(".noBorder")
+const hold = document.querySelector(".hold")
+const hover = document.querySelector(".hover")
 
 var number = 16
 
@@ -40,7 +42,9 @@ function draw() {
 const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
   element.addEventListener("mouseover", () => {
+    if(ismousedown) {
     element.setAttribute("style", `background:${returnColorInput()};`)
+  }
   })
 })
 }
@@ -49,7 +53,9 @@ function drawRGB() {
   const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
   element.addEventListener("mouseover", () => {
+    if(ismousedown) {
     element.setAttribute("style", `background:${randomRGB()};`)
+  }
   })
 })
 }
@@ -88,15 +94,6 @@ colorInput.addEventListener("change", draw)
 rgbButton.addEventListener("click", drawRGB)
 
 
-
-function restart() {
-  const deleteContainers = document.querySelectorAll(".containers")
-  deleteContainers.forEach( (element) => {
-    container.removeChild(element)
-  })
-  createSqauresInContainers(number)
-}
-
 noborder.addEventListener("click", () => {
   const sqaureNodeList = document.querySelectorAll(".sqaure")
   sqaureNodeList.forEach((element) => {
@@ -112,3 +109,28 @@ border.addEventListener("click", () => {
 })
 
 
+// 
+let ismousedown;
+
+hold.addEventListener("click", () => {
+  document.addEventListener("mousedown",mouseDown)
+  document.addEventListener("mouseup",mouseUp)
+  ismousedown = false
+})
+
+function mouseUp() {
+  ismousedown = false
+}
+function mouseDown() {
+  ismousedown = true
+}
+
+hover.addEventListener("click", () => {
+  document.removeEventListener("mouseup", mouseUp)
+  document.removeEventListener("mousedown", mouseDown)
+  ismousedown = true
+})
+
+document.addEventListener("mousedown",mouseDown)
+document.addEventListener("mouseup",mouseUp)
+ismousedown = false
