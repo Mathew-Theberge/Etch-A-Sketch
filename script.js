@@ -5,6 +5,8 @@ const dragover = document.querySelector(".dragover")
 const mouseover = document.querySelector(".mouseover")
 const colorInput = document.querySelector(".colorInput")
 const rgbButton = document.querySelector(".rgbButton")
+const border = document.querySelector(".border")
+const noborder = document.querySelector(".noBorder")
 
 var number = 16
 
@@ -94,5 +96,19 @@ function restart() {
   })
   createSqauresInContainers(number)
 }
+
+noborder.addEventListener("click", () => {
+  const sqaureNodeList = document.querySelectorAll(".sqaure")
+  sqaureNodeList.forEach((element) => {
+    element.classList.add("noBorders")
+  })
+}) 
+
+border.addEventListener("click", () => {
+  const sqaureNodeList = document.querySelectorAll(".sqaure")
+  sqaureNodeList.forEach((element) => {
+    element.classList.remove("noBorders")
+  })
+})
 
 
