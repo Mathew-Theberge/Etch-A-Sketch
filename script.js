@@ -4,6 +4,9 @@ const reset = document.querySelector(".reset")
 const dragover = document.querySelector(".dragover")
 const mouseover = document.querySelector(".mouseover")
 const colorInput = document.querySelector(".colorInput")
+const rgbButton = document.querySelector(".rgbButton")
+
+var number = 16
 
 function createContainers() {
   const containers = document.createElement("div")
@@ -29,13 +32,22 @@ function createSqauresInContainers(num1) {
   draw()
 }
 
-createSqauresInContainers(16)
+createSqauresInContainers(number)
 
 function draw() {
 const sqaureNodeList = document.querySelectorAll(".sqaure")
 sqaureNodeList.forEach((element) => {
   element.addEventListener("mouseover", () => {
     element.setAttribute("style", `background:${returnColorInput()};`)
+  })
+})
+}
+
+function drawRGB() {
+  const sqaureNodeList = document.querySelectorAll(".sqaure")
+sqaureNodeList.forEach((element) => {
+  element.addEventListener("mouseover", () => {
+    element.setAttribute("style", `background:${randomRGB()};`)
   })
 })
 }
@@ -65,10 +77,22 @@ function randomRGB() {
   return "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ")";
 }
 
-colorInput.addEventListener("change", returnColorInput)
 
 function returnColorInput() {
   return colorInput.value
+}
+
+colorInput.addEventListener("change", draw)
+rgbButton.addEventListener("click", drawRGB)
+
+
+
+function restart() {
+  const deleteContainers = document.querySelectorAll(".containers")
+  deleteContainers.forEach( (element) => {
+    container.removeChild(element)
+  })
+  createSqauresInContainers(number)
 }
 
 
