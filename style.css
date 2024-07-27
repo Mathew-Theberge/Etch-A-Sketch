@@ -5,7 +5,6 @@
 }
 
 body {
-  background: palegoldenrod;
   background-image: url(pexels-jessbaileydesign-860008.jpg);
   background-size: contain;
   background-repeat: round;
@@ -104,18 +103,36 @@ h1 {
 }
 
 .changeGrid {
-  background-color: lightgreen;
+  background-color: rgb(67, 255, 67);
 }
 
 .reset {
-  background-color: crimson;
+  background-color: rgb(253, 42, 42);
 }
 
 .rgbButton {
-  background-color:rgb(247, 133, 247);
+  background-image: url(pexels-katierainbow-8659225.jpg);
+  background-size: cover;
+  background-repeat: round;
 }
 
 .selectColor {
-  background-color: rgb(68, 68, 255);
+  background-color: rgb(0, 174, 255);
+}
+
+.hover {
+  background-color: rgb(240, 60, 96);
+}
+
+.hold {
+  background-color: lightgreen;
+}
+
+.border {
+  background-color: lightgreen;
+}
+
+.noBorder {
+  background-color: rgb(240, 60, 96);
 }
 

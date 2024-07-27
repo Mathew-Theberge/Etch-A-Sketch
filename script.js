@@ -9,6 +9,7 @@ const border = document.querySelector(".border")
 const noborder = document.querySelector(".noBorder")
 const hold = document.querySelector(".hold")
 const hover = document.querySelector(".hover")
+const selectColor = document.querySelector(".selectColor")
 
 var number = 16
 
@@ -68,6 +69,8 @@ changeGrid.addEventListener("click", () => {
       container.removeChild(element)
     })
     createSqauresInContainers(number)
+    noborder.setAttribute("style", "background: rgb(240, 60, 96);")
+    border.setAttribute("style", "background: lightgreen;")
   } else {
     alert("You must pick a number between 2-100")
   }
@@ -99,6 +102,8 @@ noborder.addEventListener("click", () => {
   sqaureNodeList.forEach((element) => {
     element.classList.add("noBorders")
   })
+  border.setAttribute("style", "background: rgb(240, 60, 96);")
+  noborder.setAttribute("style", "background: lightgreen;")
 }) 
 
 border.addEventListener("click", () => {
@@ -106,16 +111,18 @@ border.addEventListener("click", () => {
   sqaureNodeList.forEach((element) => {
     element.classList.remove("noBorders")
   })
+  noborder.setAttribute("style", "background: rgb(240, 60, 96);")
+  border.setAttribute("style", "background: lightgreen;")
 })
 
-
-// 
 let ismousedown;
 
 hold.addEventListener("click", () => {
   document.addEventListener("mousedown",mouseDown)
   document.addEventListener("mouseup",mouseUp)
   ismousedown = false
+  hover.setAttribute("style", "background: rgb(240, 60, 96);")
+  hold.setAttribute("style", "background: lightgreen;")
 })
 
 function mouseUp() {
@@ -129,8 +136,14 @@ hover.addEventListener("click", () => {
   document.removeEventListener("mouseup", mouseUp)
   document.removeEventListener("mousedown", mouseDown)
   ismousedown = true
+  hold.setAttribute("style", "background: rgb(240, 60, 96);")
+  hover.setAttribute("style", "background: lightgreen;")
 })
 
 document.addEventListener("mousedown",mouseDown)
 document.addEventListener("mouseup",mouseUp)
 ismousedown = false
+
+colorInput.addEventListener("change", () => {
+  selectColor.setAttribute("style", `background: ${colorInput.value}`)
+})
