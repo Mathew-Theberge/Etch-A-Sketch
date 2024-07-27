@@ -3,22 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Etch A Sketch</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="mainContainer">
     <h1>Etch A Sketch</h1>
-    <button class="changeGrid">change grid</button>
-    <button class="reset">reset</button>
-    <div class="container"></div>
-    <input type="color" class="colorInput">
-    <button class="rgbButton">rgb</button>
-    <button class="noBorder">no Border</button>
-    <button class="border">Border</button>
-    <button class="hover">hover</button>
-    <button class="hold">hold</button>
+    <div class="bodyContainer">
+
+      <div class="leftButtonContainer">
+        <div class="leftButtonContainers">
+          <button class="changeGrid">change grid</button>
+          <button class="reset">reset</button>
+        </div>
+        <div class="leftButtonContainers">
+          <div class="colorSelectorContainer">
+            <button class="selectColor">select color</button>
+            <input type="color" class="colorInput">
+          </div>
+          <button class="rgbButton">random colors</button>
+        </div>
+      </div>
+
+      <div class="container"></div>
+
+      <div class="rightButtonContainer">
+        <button class="hold">hold</button>
+        <button class="hover">hover</button>
+        <button class="noBorder">no Border</button>
+        <button class="border">Border</button>
+      </div>
+
+    </div>
   </div>
 </body>
 </html>
